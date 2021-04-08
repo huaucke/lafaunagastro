@@ -1,0 +1,77 @@
+@import "partials/bootstrap.custom";
+@import "partials/variables";
+@import "partials/pace";
+@import "partials/fonts";
+@import "partials/type";
+@import "partials/animatewithsass/animate";
+@import "partials/grid-isotope";
+@import "partials/forms";
+@import "partials/links";
+@import "partials/cookieconsent";
+@import "partials/articles";
+@import "partials/banners";
+@import "partials/owl.theme.custom";
+@import "partials/video-js.custom";
+@import "partials/backgrounds";
+@import "partials/header";
+@import "partials/menus";
+@import "partials/footer";
+@import "partials/searcher";
+@import "partials/images";
+@import "partials/jssocials.custom";
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    //-webkit-text-stroke: 0.25px;
+//    -webkit-font-smoothing: antialiased;
+}
+.hidden {
+    display: none;
+}
+.modal.fade {
+    @include fadeOutUp;
+}
+.fade.in {
+    @include fadeInDown;
+}
+main {
+    overflow: hidden;
+    padding-top: 100px,;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0;
+    min-height: 100vh;
+}
+.nav-down main {
+    padding-top: 100px;
+}
+.nav-up main {
+    padding-top: 60px;
+}
+.rsform-submit-button {
+    @extend .btn-call;
+}
+.pager {
+    display: table;
+    margin: 0 auto;
+}
+.icon-previous,
+.icon-first {
+    @extend .icon-arrow-left;
+}
+.icon-next,
+.icon-last {
+    @extend .icon-arrow-right;
+}
+.icon-title {
+    width: 100px;
+    margin: 1rem auto;
+    display: table;
+    padding: 1rem;
+    border-radius: 5em;
+    border: 1px solid;
+}
+
+

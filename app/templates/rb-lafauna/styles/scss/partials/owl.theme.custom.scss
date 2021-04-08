@@ -1,0 +1,246 @@
+@import "partials/owl-carousel2/animate";
+@import "partials/owl-carousel2/owl.carousel";
+@import "partials/owl-carousel2/autoheight";
+@import "partials/owl-carousel2/lazyload";
+$color-base: $brand-1;
+//nav
+$nav-color: $white;
+$nav-color-hover: $white;
+$nav-font-size: 14px;
+$nav-rounded: 3px;
+$nav-margin: .25rem;
+$nav-padding: 0;
+$nav-background: $gray-300;
+$nav-background-hover: $color-base;
+$nav-disabled-opacity: 0.5;
+//dots
+$dot-width: 1rem;
+$dot-height: 1rem;
+$dot-rounded: 5em;
+$dot-margin: .25rem;
+$dot-background: $white;
+$dot-background-active: $color-base;
+//@import 'owl-carousel2/theme';
+
+
+
+.owl-dots {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(0%);
+
+  .owl-dot {
+    position: relative;
+    height: 25px;
+    width: 25px;
+
+    span {
+      background: $black;
+      border-radius: 5em;
+      display: block;
+      height: 15px;
+      left: 50%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      transition: all 250ms ease-in 0s;
+      width: 15px;
+    }
+
+    &.active {
+      span {
+        height: 10px;
+        opacity: .6;
+        width: 10px;
+        transition: all 250ms ease-in 0s;
+      }
+    }
+  }
+}
+
+.owl-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+
+  .owl-prev {
+    @extend .icon;
+    @extend .icon-arrow-left;
+    background-color: transparent !important;
+    float: left;
+    height: 60px;
+    opacity: .6;
+    position: relative;
+    text-align: center;
+    text-indent: -900px;
+    width: 60px;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::before {
+      text-indent: 0;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-100%);
+      @extend .icon-lg;
+    }
+
+    &.disabled {
+      display: none;
+    }
+  }
+
+  .owl-next {
+    @extend .icon;
+    @extend .icon-arrow-right;
+    background-color: transparent !important;
+    float: right;
+    height: 60px;
+    opacity: .6;
+    position: relative;
+    text-align: center;
+    text-indent: 900px;
+    width: 60px;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::before {
+      text-indent: 0;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-100%);
+      @extend .icon-lg;
+    }
+
+    &.disabled {
+      display: none;
+    }
+  }
+}
+
+#slider-intro {
+    .item-slide {
+        display: table;
+        height: 100%;
+        margin: 0;
+        width: 100%;
+        .slide {
+            margin: 0 auto;
+            display: table-cell;
+            vertical-align: middle;
+            .content-slide {
+                @extend .row;
+                margin: 0;
+                padding: 1rem;
+                .data {
+                    text-align: left;
+                    position: relative;
+                    z-index: 1;
+                    @include media-breakpoint-down(sm) {
+                    @include make-col(12);
+                    text-align: center;
+                    order: 1;
+                    padding: 2rem 2rem 0; 
+                    }
+                    @include media-breakpoint-up(md) {
+                        @include make-col(5);
+                        @include make-col-offset(1);
+                    }
+                    @include media-breakpoint-up(lg) {
+                        @include make-col(4);
+                        @include make-col-offset(1);
+                    }
+                    @include media-breakpoint-up(xl) {
+                        @include make-col(4);
+                        @include make-col-offset(2);
+                    }
+                }
+                .image {
+                    picture {
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        max-width: 80vw;
+                        img {
+                            right: 0;
+                            top: 50%;
+                            position: absolute;
+                            transform: scale(1)translateX(0)translateY(-50%);
+                            bottom: 0;
+                            left: 0;
+                        }
+                    }
+                    @include media-breakpoint-down(sm) {
+                        @include make-col(12);
+                        order: 0;
+                        picture {
+                            opacity: .5;
+                            margin: 0 auto;
+                            top: -50%;
+                            img {
+                                @include make-col(12);
+                                transform: translateX(0) translateY(-50%);
+                            }
+                        }
+                    }
+                    @include media-breakpoint-up(md) {
+                        position: relative;
+                        @include make-col(6);
+                        picture {
+                            img {
+                                @include make-col(8);
+                            }
+                        }
+                    }
+                    @include media-breakpoint-up(lg) {
+                        @include make-col(7);
+                        img {
+                            @include make-col(10);
+                        }
+                    }
+                    @include media-breakpoint-up(xl) {
+                        @include make-col(6);
+                        img {
+                            @include make-col(12);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .owl-dots {
+        transform: translateY(-50%);
+        span {
+            background: $white;
+        }
+    }
+    .owl-nav button.owl-prev,
+    .owl-nav button.owl-next {
+        color: $white;
+    }
+}
+
+.slider-items {
+  @extend .container;
+  padding-bottom: 2rem;
+
+  .owl-item {
+    padding: 0 .5rem .5rem;
+    text-align: center;
+  }
+}

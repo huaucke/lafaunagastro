@@ -1,0 +1,7 @@
+{
+    "gulptasks.filters": [
+
+        "!**/node_modules/**"
+    ],
+    "git.ignoreLimitWarning": true
+}

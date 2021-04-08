@@ -1,0 +1,91 @@
+@import "partials/jssocials";
+@import "partials/fonts";
+
+.mod-socialshare {
+    .btn-share {
+        @extend .btn-clear;
+        @extend .btn-quad;
+        background-color: $gray-700 !important;
+        color: $white;
+        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.25);
+        height: 50px;
+        width: 50px;
+        letter-spacing: 1px;
+        &:hover {
+            color: lighten($brand-1, 20%)
+        }
+        .icon-share {
+            line-height: 50px;
+        }
+        .label-90 {
+            font-size: small;
+            transform: rotate(-90deg) translateX(50%) translateY(-100%);
+            display: block;
+            padding: 0;
+            width: 70px;
+            position: absolute;
+            bottom: 0;
+            left: 0%;
+            display: none;
+        }
+    }
+    .share-list {
+        position: absolute;
+        bottom: 100%;
+        left: auto;
+        right: -60px;
+        -ms-transform: translateX(-100%);
+        transform: translateX(0%);
+        @include fadeOutRight;
+        z-index: -1;
+        @include media-breakpoint-down(sm) {
+            @include fadeOutLeft;
+            left: -60px;
+            right: auto;
+        }
+        .jssocials-shares {
+            margin: 0;
+        }
+        .jssocials-share {
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            text-align: center;
+            border-bottom: 1px solid black;
+            margin: 0;
+            line-height: 30px;
+            display: block;
+            a.jssocials-share-link {
+                display: table;
+                height: 100%;
+                width: 100%;
+                color: $white;
+                &:hover {
+                    color: $link-hover-color;
+                    text-decoration: none;
+                }
+                i.fa {
+                    display: table-cell;
+                    vertical-align: middle;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &.active {
+        .btn-share {
+            color: lighten($brand-1, 20%)
+        }
+        .share-list {
+            @include fadeInRight;
+            left:auto;
+            right: 0;
+            @include media-breakpoint-down(sm) {
+                @include fadeInLeft;
+                left: 0;
+                right: auto;
+            }
+        }
+    }
+}

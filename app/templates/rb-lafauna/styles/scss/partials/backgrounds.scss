@@ -1,0 +1,473 @@
+.bg-img {
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  color: $white;
+  h1,
+  h2 {
+    small:before,
+    small:after {
+      background-color: $white;
+    }
+  }
+  &.bg-bottom {
+    background-position-y: bottom;
+  }
+  &.bg-top {
+    background-position-y: top;
+  }
+  a {
+    color: $white;
+    &:hover {
+      color: $white;
+      text-shadow: 0 0 1px;
+    }
+    .shape {
+      stroke: $white;
+    }
+  }
+}
+.parallax {
+  position: relative;
+  .bg-img {
+    background-attachment: fixed;
+  }
+  .banner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)translateY(-100%);
+    top: 50%;
+  }
+}
+
+.img-intro {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+}
+
+.bg-graylight {
+  background: $gray-100;
+  h2, a {
+    color: $brand-1;
+  }
+  button.btn-more {
+    color: $brand-2;
+  }
+}
+
+.grad-text {
+  background: linear-gradient(180deg, rgb(240, 230, 255), rgb(240, 230, 255), rgb(240, 230, 255), rgb(180, 160, 240), rgb(220, 208, 255));
+}
+
+.bg-black {
+  background-color: black;
+  color: $white;
+  small {
+    &:before,
+    &:after {
+      background-color: $white;
+    }
+  }
+  a.btn-more {
+    color: $white;
+    .shape {
+      stroke: $white;
+    }
+  }
+}
+
+.grad-blue {
+  background-image: radial-gradient(circle at 60% 10%, #2196f3, #14397c);
+  height: 100%;
+  position: relative;
+  color: $white;
+
+  small {
+
+    &:before,
+    &:after {
+      background-color: $white;
+    }
+  }
+
+  a {
+    color: $white;
+
+    .shape {
+      stroke: $white;
+    }
+  }
+}
+
+.bg-dark {
+  background-color: $black;
+  color: $white;
+
+  small:before,
+  small:after {
+    background-color: $white;
+  }
+
+  a.btn-more {
+    color: $white;
+
+    .shape {
+      stroke: $white;
+    }
+  }
+}
+
+
+.grad-gray {
+  background-image: radial-gradient(circle at 60% 10%, #909BAD, #505B6D);
+  color: $white;
+  height: 100%;
+  position: relative;
+
+  small:before,
+  small:after {
+    background-color: $white;
+  }
+
+  button,
+  a {
+    color: $white;
+    .shape {
+      stroke: $white;
+    }
+    &:hover {
+      color: $white;
+      .shape {
+        stroke: $white;
+      }
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: lighten($white, 10%);
+    .shape {
+      stroke: lighten($white, 10%);
+    }
+    &:hover {
+      color: $white;
+
+      .shape {
+        stroke: $white;
+      }
+    }
+  }
+  .owl-dot span {
+    background-color: lighten($brand-1, 10%) !important;
+    &:hover {
+      background-color: $white !important;
+    }
+  }
+}
+
+.grad-graydark {
+  background-image: linear-gradient(-60deg, #1f1f3f, #101020);
+}
+
+.grad-graylight {
+  background-image: radial-gradient(circle at 60% -10%, #f3f6f2, #d3d2c8);
+  height: 100%;
+  position: relative;
+
+  small:before,
+  small:after {
+    background-color: $brand-1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a {
+    color: lighten($brand-1, 10%);
+
+    .shape {
+      stroke: lighten($brand-1, 10%);
+    }
+
+    &:hover {
+      color: $black;
+
+      .shape {
+        stroke: $black;
+      }
+    }
+  }
+
+  .owl-dot span {
+    background-color: lighten($brand-1, 10%) !important;
+
+    &:hover {
+      background-color: $black !important;
+    }
+  }
+}
+
+.grad-green {
+  background-image: radial-gradient(circle at 60% 10%, #5EAF31, #415E20);
+  position: relative;
+  color: $white;
+
+  small:before,
+  small:after {
+    background-color: $white;
+  }
+
+  a {
+    color: lighten(#b8d535, 10%);
+
+    .shape {
+      stroke: lighten(#b8d535, 10%);
+    }
+
+    &:hover {
+      color: $white;
+
+      .shape {
+        stroke: $white;
+      }
+    }
+  }
+
+  .owl-dot span {
+    background-color: lighten(#b8d535, 10%) !important;
+
+    &:hover {
+      background-color: $white !important;
+    }
+  }
+}
+
+.grad-bluelight {
+  background-image: radial-gradient(circle at 60% 10%, #81C4EE, #2b73a0);
+  height: 100%;
+  position: relative;
+  color: $white;
+
+  small:before,
+  small:after {
+    background-color: $white;
+  }
+  h4 {
+    color: $black;
+  }
+
+  a {
+    color: lighten(#81C4EE, 10%);
+
+    .shape {
+      stroke: lighten(#81C4EE, 10%);
+    }
+
+    &:hover {
+      color: $white;
+
+      .shape {
+        stroke: $white;
+      }
+    }
+  }
+
+  .owl-dot span {
+    background-color: lighten(#81C4EE, 10%) !important;
+
+    &:hover {
+      background-color: $white !important;
+    }
+  }
+}
+
+.grad-red {
+  background-image: radial-gradient(circle at 60% 10%, #d3031c, #6a0003);
+  color: $white;
+  height: 100%;
+  position: relative;
+
+  small:before,
+  small:after {
+    background-color: $white;
+  }
+
+  a {
+    color: lighten(#d3031c, 10%);
+
+    .shape {
+      stroke: lighten(#d3031c, 10%);
+    }
+
+    &:hover {
+      color: $white;
+
+      .shape {
+        stroke: $white;
+      }
+    }
+  }
+
+  .owl-dot span {
+    background-color: lighten(#d3031c, 10%) !important;
+
+    &:hover {
+      background-color: $white !important;
+    }
+  }
+}
+
+.grad-footer {
+  background: radial-gradient(circle at 60% -60%, rgba(69, 54, 108, 1), rgba(46, 40, 80, 1), rgba(26, 11, 52, 1));
+  height: 100%;
+  position: relative;
+  color: $white;
+  small:before,
+  small:after {
+    background-color: $white;
+  }
+
+  a {
+    color: lighten(#716bf9, 10%);
+
+    .shape {
+      stroke: lighten(#716bf9, 10%);
+    }
+
+    &:hover {
+      color: $white;
+
+      .shape {
+        stroke: $white;
+      }
+    }
+  }
+
+  .owl-dot span {
+    background-color: lighten(#716bf9, 10%) !important;
+
+    &:hover {
+      background-color: $white !important;
+    }
+  }
+}
+
+.grad-search {
+  background: linear-gradient(-35deg, rgba(39, 54, 88, .9), rgba(79, 96, 160, .9), rgba(80, 104, 142, .9), rgba(79, 96, 160, 1));
+}
+
+.grad-violet {
+  background-image: radial-gradient(circle at 60% 10%, rgba(79, 96, 160, .9), rgba(26, 11, 52, 1));
+  height: 100%;
+  position: relative;
+  color: $white;
+  small:before,
+  small:after {
+    background-color: $white;
+  }
+
+  a {
+    color: lighten(#716bf9, 10%);
+
+    .shape {
+      stroke: lighten(#716bf9, 10%);
+    }
+
+    &:hover {
+      color: $white;
+
+      .shape {
+        stroke: $white;
+      }
+    }
+  }
+
+  .owl-dot span {
+    background-color: lighten(#716bf9, 10%) !important;
+
+    &:hover {
+      background-color: $white !important;
+    }
+  }
+}
+
+.grad-yellow {
+  background-image: radial-gradient(circle at 60% 10%, #ffcc33, #f8b039);
+  height: 100%;
+  position: relative;
+  color: $black;
+
+  small:before,
+  small:after {
+    background-color: $black;
+  }
+
+  a {
+    color: $black;
+
+    .shape {
+      stroke: $black;
+    }
+
+    &:hover {
+      color: lighten($black, 20%);
+      
+      .shape {
+        stroke: lighten($black, 20%);
+      }
+    }
+  }
+
+  .owl-dot span {
+    background-color: $black !important;
+
+    &:hover {
+      background-color: lighten($black, 20%) !important;
+    }
+  }
+}
+
+.flex-align-slide-content {
+  width: 100%;
+  height: 100%;
+  padding-top: 4.2rem;
+  padding-right: 3%;
+  padding-left: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 1000px) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    height: 100%;
+    margin-left: 0;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
+div[class*="grad-"].custom {
+  padding: 4rem 0;
+  clear: both;
+  max-width: 100vw;
+}

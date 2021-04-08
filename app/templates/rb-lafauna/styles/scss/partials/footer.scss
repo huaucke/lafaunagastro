@@ -1,0 +1,288 @@
+.footer {
+  @extend .col;
+  @extend .grad-footer;
+  @extend .container-fluid;
+  color: $gray-200;
+  padding: .5rem 0;
+  margin: 0 auto;
+  a {
+    color: $white;
+    transition: color .1s ease;
+    font-size: inherit;
+    &:hover {
+      color: $link-hover-color;
+      transition: color .1s ease;
+    }
+  }
+  .nav-item {
+    &.current.active a {
+      text-decoration: underline;
+      color: lighten($brand-2, 30%)
+    }
+  }
+  .content {
+    @extend .container;
+    padding-top: .5rem;
+    .breadcrumb {
+      display: none;
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      a {
+        line-height: 0;
+      }
+      span {
+        font-size: $small-font-size;
+      }
+      .breadcrumb-item+.breadcrumb-item {
+        padding: 0 0.1rem;
+        &:before {
+          padding-right: 0.1rem;
+        }
+      }
+      @include media-breakpoint-up(sm) {
+        display: flex;
+      }
+    }
+    .footermenu {
+      @extend .row;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      ul.dropdown-menu {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+      }
+      .footmenu-productos,
+      .footmenu-empresa {
+        @extend .col;
+        padding: 0 .5rem 1rem 0;
+      }
+      .footmenu-address {
+        @extend .col;
+        padding: 0 !important;
+        .direccion {
+          @extend .col;
+          padding: 0;
+          float: left;
+          address {
+            margin: 0;
+            p {
+              font-size: 14px;
+              font-weight: 400;
+              color: $gray-500;
+              line-height: 1.7;
+              margin: 0;
+              text-align: left;
+            }
+          }
+        }
+      }
+      .footmenu-rrss ul {
+        display: table;        
+        @include make-col(12);
+        li {
+          width: 34px;
+          display: inline-table;
+          padding: 2px;
+          float: left;
+          &:first-child {
+            @extend .col-md-12;
+            padding: 0;
+            display: block;
+            clear: both;
+            float: none;
+          }
+          a {
+            &[class^=' icon-'] {
+              @extend .btn-quad;
+              border-color: $white;
+              border-radius: 5em;
+              color: $gray-500;
+              float: left;
+              position: relative;
+              text-indent: 50px;
+              &::before {
+                position: absolute;
+                top: -4px;
+                left: -5px;
+                font-size: 1rem;
+                transform: translateX(-50%);
+              }
+            }
+           &:hover {
+             color: white;
+           } 
+          }
+        }
+      }
+      .nav-header {
+        color: $gray-400;
+        font-weight: $font-weight-normal;
+        font-size: .9em;
+        position: relative;
+        display: inline-table;
+        margin: 1rem 0.5rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        img {
+          margin: -10px 0;
+          max-height: 30px;
+        }
+      }
+      .nav-item {
+        a {
+          display: flex;
+          font-size: .9em;
+          overflow: hidden;
+          padding: 3px 0 3px .6rem;
+          text-decoration: none;
+          text-overflow: inherit;
+          white-space: nowrap;
+        }        
+      }
+      
+      @include media-breakpoint-down(xs) {
+        .footmenu-empresa {
+          order: 1;
+          @include make-col(12);
+          padding: 0 0 1rem 0 ;
+          li.nav-item {
+            padding: .25rem 0;
+            >a {
+              border-bottom: 1px solid;
+              padding: 0.25rem;
+              display: block;
+            }
+          }
+        }
+        .footmenu-address {
+          order: 2;
+          @include make-col(12);
+           address p {
+             font-size: 16px;
+             padding: 0;
+           }
+         }
+         .footmenu-soporte,
+         .footmenu-productos {
+          display: none;
+         }
+       }
+      @include media-breakpoint-up(sm) {
+        .footmenu-soporte,
+        .footmenu-productos {
+          display: none;
+        }
+        .footmenu-empresa {
+          order: 1;
+          @include make-col(6);
+        }
+        .footmenu-address {
+          order: 2;
+          @include make-col(6);
+        }
+      }
+      @include media-breakpoint-up(md) {
+        .footmenu-productos {
+          order: 4;
+          display: flex;
+          @include make-col(3);
+        }
+        .footmenu-soporte {
+          order: 3;
+          display: flex;
+          @include make-col(3);
+        }
+        .footmenu-empresa {
+          order: 1;
+          @include make-col(3);
+        }
+        .footmenu-address {
+          order: 2;
+          @include make-col(3);
+        }
+      }
+    }
+  }
+  .copyright {
+    padding: 1rem 1rem .5rem;
+    font-size: $small-font-size;
+    text-align: left;
+    @include media-breakpoint-down(xs) {
+      text-align: center;
+    }
+    ul {
+      @extend .list-inline;
+      margin-bottom: 0;
+      display: block;
+      padding: 0 1rem;
+      @include media-breakpoint-up(sm) {
+        float: right;
+      }
+      li {
+        @extend .list-inline-item;
+      }
+    }
+  }
+  .mod-mailing {
+    @extend .justify-content-md-center;
+    @extend .row;
+    padding: 2rem 0 6rem;
+    text-align: center;
+    .form-mailing {
+      @include media-breakpoint-up(md) {
+        @include make-col(8);
+        margin: 0 auto;
+      }
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
+        margin: 0 auto;
+      }
+    }
+  }
+  .links-seo {
+    @extend .row;
+    ul {
+      @include make-col(3);
+      list-style: none;
+      padding: 1rem .5rem;
+      float: left;
+      li a {
+        padding: 0.2rem 0;
+        display: block;
+        font-size: $small-font-size;
+      }
+    }
+  }/*
+  .footrow {
+    @extend .row;
+    .footmenu,
+    .footinfo {
+      @include media-breakpoint-up(lg) {
+        @include make-col(3);
+      }
+      @include media-breakpoint-down(lg) {
+        @include make-col(4);
+      }
+      @include media-breakpoint-down(sm) {
+        @include make-col(6);
+      }
+      ul {
+        @extend .col;
+        list-style: none;
+        padding: 1rem .5rem;
+        float: right;
+        li a {
+          padding: 0.2rem 0;
+          display: block;
+          &:hover {
+            color: $link-hover-color;
+          }
+        }
+      }
+    }
+  }*/
+}

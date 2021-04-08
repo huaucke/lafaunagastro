@@ -1,0 +1,172 @@
+/* Ion.RangeSlider, Flat UI Skin
+// css version 2.0.3
+// © Denis Ineshin, 2014    https://github.com/IonDen
+// ===================================================================================================================*/
+
+/* =====================================================================================================================
+// Skin details */
+
+.irs-line-mid,
+.irs-line-left,
+.irs-line-right,
+.irs-bar-edge {
+//    background: url(../img/sprite-skin-flat.png) repeat-x;
+}
+
+.irs {
+    height: 50px;
+}
+
+.irs-with-grid {
+    height: 60px;
+}
+
+.irs-line {
+    height: 14px;
+    top: 100%;
+    transform: translateY(-100%);
+    background-color: transparent;
+    &::after {
+        background-color: $brand-2;
+        box-shadow: inset 0 0 1.2rem rgba(0, 0, 0, 0.3);
+        content: "";
+        display: block;
+        height: 14px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+.irs-line-left {
+    height: 12px;
+    background-position: 0 -30px;
+}
+
+.irs-line-mid {
+    height: 12px;
+    background-position: 0 0;
+}
+
+.irs-line-right {
+    height: 12px;
+    background-position: 100% -30px;
+}
+
+.irs-bar {
+    background-color: transparent;
+    height: 14px;
+    top: 100%;
+    transform: translateY(-100%);
+    &::after {
+        background-color: lighten($brand-1, 30%);
+        position: absolute;
+        height: 12px;
+        width: 100%;
+        content: "";
+        display: block;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.irs-bar-edge {
+    top: 100%;
+    height: 12px;
+    width: 9px;
+//    background-position: 0 -90px;
+    transform: translateY(-100%);
+}
+
+
+.irs-shadow {
+    height: 3px;
+    top: 34px;
+    background: #000;
+    opacity: 0.25;
+}
+
+.lt-ie9 .irs-shadow {
+    filter: alpha(opacity=25);
+}
+
+.irs-slider {
+    width: 16px;
+    height: 20px;
+    top: 100%;
+    background-color: transparent;
+    background-position: 0 0;
+    transform: translateY(-100%);
+    /*
+    width: 16px;
+    height: 18px;
+    top: 22px;
+    background-position: 0 -120px;*/
+    &:after {
+        background-color: lighten($brand-1, 30%);
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 100%;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 2px;
+    }
+}
+
+.irs-slider.state_hover,
+.irs-slider:hover {
+    background-position: 0 -150px;
+}
+
+.irs-min,
+.irs-max {
+    color: lighten($brand-1, 30%);
+    font-size: .7rem;
+    line-height: 1.1;
+    text-shadow: none;
+    padding: 1px 3px;
+    top: 100%;
+    transform: translateY(-100%);
+}
+
+.irs-from,
+.irs-to,
+.irs-single {
+    border: 1px solid;
+    box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+    color: $white;
+    font-size: 0.8em;
+    line-height: 1.333;
+    text-shadow: none;
+    padding: .4rem .7rem;
+    background: $brand-1;
+    top:0;
+    z-index: 3;
+    &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        bottom: -8px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        margin-left: -4px;
+        overflow: hidden;
+        border: 4px solid transparent;
+        border-top-color: $white;
+    }
+}
+
+.irs-grid-pol {
+    background: #e1e4e9;
+}
+
+.irs-grid-text {
+    color: #999;
+}
+
+.irs-disabled {}

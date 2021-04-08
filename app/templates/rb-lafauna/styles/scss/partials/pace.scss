@@ -1,0 +1,33 @@
+// PRELOAD PACE
+.pace {
+  pointer-events: none;
+  user-select: none;
+  .pace-progress {
+    background:purple;
+    height: 4px;
+    position: fixed;
+    right: 100%;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+  }
+  &.pace-inactive {
+    opacity: 0;
+  }
+}
+.pace-inactive,
+.pace-running {
+  header,
+  main,
+  footer {
+    overflow: hidden;
+    opacity: 0;
+  }
+}
+
+.pace-done {
+  .home,
+  footer {
+    opacity: 1;
+  }
+}

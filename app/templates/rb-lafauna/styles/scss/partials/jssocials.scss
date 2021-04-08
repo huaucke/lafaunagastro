@@ -1,0 +1,143 @@
+.jssocials-shares {
+    margin: 0.2em 0;
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.jssocials-share {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0.3em 0.6em 0.3em 0;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.jssocials-share-logo {
+    width: 1em;
+    vertical-align: middle;
+    font-size: 1.5em;
+    &img {
+        width: auto;
+        height: 1em;
+    }
+}
+
+
+.jssocials-share-link {
+    background-color: rgba(0, 0, 0, 0.60);
+    color: $white;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+    &:hover {
+        color: whiteen($brand-1, 20%)
+    }
+    &.jssocials-share-link-count {
+        padding-top: .2em;
+        .jssocials-share-count {
+            display: block;
+            font-size: .6em;
+            margin: 0 -.5em -.8em -.5em;
+        }
+    }
+    &.jssocials-share-no-count {
+        padding-top: .5em;
+        .jssocials-share-count {
+            height: 1em;
+        }
+    }
+}
+
+
+.jssocials-share-label {
+    padding-left: 0.3em;
+    vertical-align: middle;
+}
+
+.jssocials-share-count-box {
+    display: inline-block;
+    height: 1.5em;
+    padding: 0 0.3em;
+    line-height: 1;
+    vertical-align: middle;
+    cursor: default;
+    &.jssocials-share-no-count {
+        display: none;
+    }
+}
+
+.jssocials-share-count {
+    line-height: 1.5em;
+    vertical-align: middle;
+}
+
+
+
+.fa {
+    @extend .icon;
+    @extend .icon-lg;
+    border: none;
+}
+
+.fa-at {
+    @extend .icon-at;
+}
+
+.fa-twitter {
+    @extend .icon-twitter;
+}
+
+.fa-facebook {
+    @extend .icon-facebook;
+}
+
+.fa-google {
+    @extend .icon-googleplus;
+}
+
+.fa-linkedin {
+    @extend .icon-linkedin;
+}
+
+.fa-stumbleupon {
+    @extend .icon-stumbleupon;
+}
+
+.fa-pinterest {
+    @extend .icon-pinterest;
+}
+
+.fa-commenting {
+    @extend .icon-whatsapp;
+}
+.fa-vk {
+    @extend .icon-vk;
+}
+
+.fa-whatsapp {
+    @extend .icon-whatsapp;
+}
+
+.fa-line {
+    @extend .icon-line;
+}
+.fa-rss {
+    @extend .icon-rss;
+}
+
+.fa-volume-control-phone {
+    @extend .icon-viber;
+}
+.fa-get-pocket {
+    @extend .icon-pocket;
+}
+.fa-telegram {
+    @extend .icon-telegram;
+}
+.fa-comment {
+    @extend .icon-line;
+}

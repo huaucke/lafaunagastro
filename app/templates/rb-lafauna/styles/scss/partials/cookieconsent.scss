@@ -1,0 +1,233 @@
+.cc-window {
+    @extend .container-fluid;
+    @extend .bg-dark;
+    margin: 0;
+    opacity: 1;
+    overflow: hidden;
+    padding: 1rem;
+    position: fixed;
+    transition: opacity 1s ease;
+    z-index: 9999;
+    @include media-breakpoint-up(sm) {            
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .cc-message {
+        @extend .col;
+        @include media-breakpoint-down(xs) {
+            @include make-col(12);
+            display: table;
+            text-align: justify
+        }
+        @include media-breakpoint-up(sm) {
+            @include make-col(8);
+        }
+        @include media-breakpoint-up(lg) {
+            @include make-col(10);
+        }
+        .cc-link {
+            display: inline-block;
+            padding: 0 .3em;
+            &:active,
+            &:visited {
+                color: $link-hover-color;
+            }
+        }
+    }
+    .cc-compliance {
+        @extend .col;
+        display: table;
+        @include media-breakpoint-down(xs) {
+            @include make-col(12);
+        }
+        @include media-breakpoint-up(sm) {
+            @include make-col(4);
+        }
+        @include media-breakpoint-up(lg) {
+            @include make-col(2);
+        }
+        .cc-btn {
+            @extend .btn-call;
+            @include media-breakpoint-up(sm) {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+	&.cc-static {
+        position: static;
+    }
+    &.cc-floating {
+        padding: 2em;
+        max-width: 24em;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    &.cc-top {
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+    &.cc-left {
+        left: 0;
+    }
+    &.cc-right {
+        right: 0;
+    }
+    &.cc-bottom {
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    &.cc-theme-classic {
+        padding: 1.2em;
+        border-radius: 5px;
+        .cc-btn {
+            border-radius: 5px;
+            border: 2px solid;
+            &:last-child {
+                min-width: 15rem;
+            }
+        }
+    }
+    &.cc-theme-edgeless {
+        .cc-message {
+            font-size: $small-font-size;
+            
+            .cc-btn {
+                margin: 0;
+                padding: .5rem;
+                height: 100%;
+                &:last-child {
+                    min-width: 140px;
+                }
+            }
+            .cc-btn+.cc-btn {
+                margin-left: 0;
+            }
+        }
+    }
+	&.cc-invisible {
+		opacity: 0;
+    }
+}
+
+.cc-animate.cc-revoke {
+    transition: transform 1s ease;
+	&.cc-top {
+		transform: translateY(-2em)
+	}
+	.cc-bottom {
+		transform: translateY(2em);
+	}
+    .cc-active.cc-bottom,
+	.cc-active.cc-top,
+	&:hover {
+		transform: translateY(0)
+	}
+}
+.cc-grower {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s
+}
+
+.cc-revoke {
+	background-color: rgba(0,0,0,0.8);
+	color: $white;
+    position: fixed;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    z-index: 9999
+}
+
+
+.cc-header {
+    font-size: 1.25em;
+    font-weight: 700
+}
+
+.cc-highlight {
+    .cc-btn {
+        &:first-child {
+        background-color: transparent;
+        border-color: transparent;
+        }
+        &:focus,
+        &:hover {
+            background-color: transparent;
+            text-decoration: underline
+        }
+    }
+}
+
+
+.cc-close {
+    display: block;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    font-size: 1.6em;
+    opacity: .9;
+    line-height: .75;
+    &:focus,
+    &:hover {
+        opacity: 1
+    }
+}
+
+
+.cc-revoke {
+	padding: .5em;
+	&.cc-top {
+		top: 0;
+		left: 3em;
+	}
+	
+	&.cc-bottom {
+		bottom: 0;
+		left: 3em;
+	}
+	&.cc-left {
+		left: 3em;
+		right: unset
+	}
+	&.cc-right {
+		right: 3em;
+		left: unset
+	}
+}
+
+
+
+
+
+
+.cc-compliance {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    margin-right: 1em;
+	&>.cc-btn {
+		-ms-flex: 1;
+		flex: 1
+	}
+}
+
+.cc-btn+.cc-btn {
+    margin-left: .5em
+}
+
+@media print {
+    .cc-revoke,
+    .cc-window {
+        display: none
+    }
+}

@@ -1,0 +1,370 @@
+p.formRed {
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 1px solid red;
+  display: table;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 288, .8);
+  padding: 0.4rem 1rem;
+}
+
+label {
+  &.hide {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    border: 0;
+  }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.input {
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none;
+  color: $gray-800;
+  overflow: visible;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: $input-btn-padding-y $input-btn-padding-x;
+  transition: box-shadow 150ms ease-in-out;
+  width: 100%;
+
+  &:focus {
+    box-shadow: inset 0 0 1rem rgba(0, 0, 0, .3);
+    outline: none;
+  }
+}
+
+.form-inline {
+  @extend .container-fluid;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  input {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.radio-inline {
+  @extend .justify-content-md-center;
+  @extend .container;
+
+  input[type=checkbox],
+  input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  label::after {
+    position: absolute;
+    border-radius: 5em;
+    top: .25rem;
+    right: 0;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    content: "";
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #dee2e6;
+  }
+}
+
+// Checkboxes and radios
+//
+// Base class takes care of all the key behavioral aspects.
+
+.input-mailing {
+  @extend .input;
+}
+
+/*RSFORM */
+.rsform-input-box {
+  height: 3rem;
+}
+
+#userForm>h2,
+#expert>h2 {
+  @extend .display-1;
+  text-align: center;
+  display: none;
+}
+
+#userForm>.formRed {
+  @extend h2;
+  @extend .display-3;
+  padding: 0;
+  text-align: center;
+  background-color: red !important;
+  margin-top: 1rem;
+
+}
+
+.formValidation .formError {
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: -8px;
+  right: 1.5rem;
+  padding: 0 .1rem;
+  background-color: white;
+  z-index: 99999;
+  padding: 0.1rem .5rem;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+
+.rsform-block-captcha img {
+  float: left;
+  margin-right: 0.4rem;
+  margin-top: 1px;
+}
+a.rsform-captcha-refresh-button {
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border: 1px solid;
+  padding: 6px 5px 4px;
+  margin: 0;
+}
+.formRow {
+  @extend .col;
+
+  @include media-breakpoint-down(sm) {
+    @include make-col(12);
+    padding: 1rem;
+  }
+
+  padding: 1rem 0;
+  text-align: center;
+
+  .rsform-block {
+    @extend .form-group;
+    clear: both;
+
+    .formControlLabel {
+      @extend .sr-only;
+    }
+
+    .formControls {
+      @extend .col;
+      @extend .col-sm-12;
+
+      .formBody {
+        float: none;
+        position: relative;
+        text-align: left;
+
+        .xdsoft_datetimepicker {
+          border: none;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+        label {
+          padding: .5rem 0 .5rem 0.5rem;
+          .rsform-checkbox {
+            position: absolute;
+            top: .6rem;
+            left: 0;
+            transform: translateX(50%);
+          }
+        }
+      }
+
+
+      label {
+        @extend .form-check-label;
+        position: relative;
+        text-align: left;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      .rsform-input-box,
+      .rsform-select-box,
+      .rsform-text-box {
+        @extend .form-control;
+        font-size: 16px;
+        line-height: 1.25;
+
+        option {
+          padding: 5px;
+        }
+      }
+    }
+
+    .rsform-button,
+    .rsform-submit-button {
+      @extend .btn-call;
+    }
+  }
+
+  .rsform-block-interesado-en label {
+    display: block;
+    position: relative;
+    padding-left: 2rem;
+    text-align: left;
+  }
+
+  .rsform-block-llamar label {
+    background-color: $brand-1;
+    color: $white;
+    padding: 1rem;
+    display: block;
+    position: relative;
+    padding-left: 2rem;
+    text-align: left;
+
+    input#Llamar0 {
+      display: none;
+    }
+  }
+}
+
+.rsform-block-aceptar-newsletter label,
+.rsform-block .formControls label {
+  text-align: left;
+  text-indent: 20px;
+  font-size: smaller;
+}
+
+.rsform-block-date-time {
+  .xdsoft_datetimepicker {
+    background-color: transparent !important;
+
+    .xdsoft_datepicker {
+      @include fadeIn;
+      margin: 0 auto;
+      width: calc(100% - 110px);
+
+      .xdsoft_today_button {
+        position: relative;
+        background: none;
+        opacity: 1;
+        width: 60px;
+
+        &::before {
+          text-align: center;
+          content: 'Hoy';
+          font-size: $small-font-size;
+          left: -60px;
+          position: absolute;
+          top: 8px;
+          width: 60px;
+          z-index: 9;
+        }
+      }
+
+      .xdsoft_label {
+        background-color: transparent !important;
+        font-weight: $font-weight-base;
+        float: none;
+        margin: 4px auto;
+        text-align: center;
+      }
+    }
+
+    .xdsoft_timepicker {
+      @include fadeIn;
+      margin: 0 0 0 10px;
+      width: 100px;
+
+      .xdsoft_prev {
+        display: table;
+        margin: 0 auto 8px;
+      }
+
+      .xdsoft_next {
+        display: table;
+        margin: 8px auto 0;
+      }
+    }
+  }
+}
+
+.rsform-checkbox {
+  position: absolute;
+  top: 3px;
+  left: 1px;
+}
+
+#mod-experto {
+  overflow: hidden;
+  height: 0;
+  @include fadeOut;
+
+  &.active {
+    overflow: visible;
+    height: auto;
+    @include fadeIn;
+  }
+}
+
+.col-form {
+  margin: 0 auto;
+  @extend .col;
+
+  @include media-breakpoint-up(sm) {
+    @include make-col(10);
+    @include make-col-offset(1);
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include make-col(8);
+    @include make-col-offset(2);
+  }
+
+  .formRow {
+    padding: 1rem 0 2rem;
+    margin: 0 auto;
+
+    .formControls {
+      padding: 0;
+    }
+
+    @include media-breakpoint-up(md) {
+      @include make-col(10);
+      @include make-col-offset(1);
+    }
+
+    @include media-breakpoint-up(lg) {
+      @include make-col(8);
+      @include make-col-offset(2);
+    }
+
+    @include media-breakpoint-up(xl) {
+      @include make-col(6);
+      @include make-col-offset(3);
+    }
+  }
+}
