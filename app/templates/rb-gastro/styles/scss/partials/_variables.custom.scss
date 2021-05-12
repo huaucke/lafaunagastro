@@ -1,0 +1,92 @@
+
+// Variables
+$white:  #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:  #000 !default;
+
+$grays: (
+  100: $gray-100,
+  200: $gray-200,
+  300: $gray-300,
+  400: $gray-400,
+  500: $gray-500,
+  600: $gray-600,
+  700: $gray-700,
+  800: $gray-800,
+  900: $gray-900
+) !default;
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+
+
+// scss-docs-start theme-color-variables
+$primary:       $brand-1 !default;
+$secondary:     $brand-2 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
+// scss-docs-end theme-color-variables
+
+$padding: 1rem;
+
+$brand-1: #C9961A;
+$brand-2: #ffc107;
+$brand-3: rgb(114, 86, 10);
+$brand-invert: #ffc107;
+$active: #C9961A;
+$font-color:    $black;
+$link-color:    $brand-1;
+$link-hover-color:    $brand-2;
+
+$box-shadows:   0 8px 25px -5px rgba(45, 62, 79, .15);
+$border-radius: .25rem;
+
+$headings-line-height:  1.5;
+//$btn-font-family;
+$btn-font-weight:     300 !important;
+
+$button-padding: 0.375rem 0.75rem;
+
+$small-font-size: .8rem;
+
+$h1-font-size:                $font-size-base * 2 !default;
+$h2-font-size:                $font-size-base * 1.5 !default;
+$h3-font-size:                $font-size-base * 1.25 !default;
+$h4-font-size:                $font-size-base * 1.1 !default;
+$h5-font-size:                $font-size-base * 1 !default;
+$h6-font-size:                $font-size-base !default;
+$line-height-base:            1.2 !default;
+
+$display1-size:               5rem !default;
+$display2-size:               4rem !default;
+$display3-size:               3rem !default;
+$display4-size:               2rem !default;
+
+
+$display1-weight:             100 !default;
+$display2-weight:             100 !default;
+$display3-weight:             100 !default;
+$display4-weight:             400 !default;
+$display-line-height:         $headings-line-height !default;
+

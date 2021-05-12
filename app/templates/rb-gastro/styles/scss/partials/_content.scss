@@ -1,0 +1,125 @@
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  //-webkit-text-stroke: 0.25px;
+//    -webkit-font-smoothing: antialiased;
+}
+
+main {
+  overflow: hidden;
+  padding-top: 100px,;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0;
+  min-height: 100vh;
+  &#content {
+    min-height: calc(100vh - 11rem);
+  }
+}
+.nav-down {
+  main {
+    padding-top: 100px;
+  }
+}
+.nav-up {
+  header .header-content .btn-togglemenu {
+    padding: 1rem;
+  }
+  main {
+    padding-top: 60px;
+  }
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+.item-page {
+  padding: 1rem;
+  
+}
+
+.item-image {
+  margin-bottom: .5rem;
+}
+.sub-cats  {
+  @extend .container-fluid;
+  h3 {
+    @extend h6;
+    padding: 1rem 0 1rem .5rem;
+    text-align: left;
+  }
+  .subcat-list {
+    @extend .unstyled;
+    padding: 0;
+    .item-carta {
+      @extend .flex-grow-1;
+      border-bottom: 1px solid $gray-500;
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+      display: flex;
+      position: relative;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+      margin-top: calc(var(--bs-gutter-y) * -1);
+      &:last-child {
+        border: none;
+        padding-bottom: 3rem;
+      }
+      .nombre {
+        height: 3.5rem;
+        display: table;
+        order: 0;
+        width: calc(100% - 6rem);
+        .titulo {
+          display: table-cell;
+          vertical-align: middle;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+      .alergenos {
+        order: 2;
+        padding: 0.7rem 0;
+        position: relative;
+        width: 2rem;
+        .btn-toggle {
+          display: table-cell;
+          float: right;
+          padding: 0;
+          vertical-align: middle;          
+        }
+      }
+      .precio {
+        order: 3;
+        line-height: 3.5rem;
+        min-width: 4rem;
+        text-align: right;
+      }
+      .descrip {
+        @extend .flex-fill;
+        order: 4;
+        p {
+          text-align: left;
+          font-size: small;
+          font-style: italic;
+        }
+      }
+      .icons {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        background-color: rgba(201,160,26, .3);
+        border-radius: 5rem;
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+  }
+  .subcat-list {
+    color: $dark;
+    text-align: justify;
+  }
+}

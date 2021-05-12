@@ -1,0 +1,481 @@
+.hero {
+  display: table;
+  width: 100%;
+  .banner {
+      display: table-cell;
+    vertical-align: middle;
+    position: relative;
+  }
+  .val-bottom {
+    vertical-align: bottom;
+  }
+  .val-top {
+    vertical-align: top;
+  }
+}
+
+.random-quote {
+  display: none;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  .logo {
+    padding: 1rem 0 0;
+    margin: 0 auto;
+    display: table;
+  }
+  blockquote {
+    footer {
+      font-size: small;
+      padding-top: 2rem;
+      text-align: right;
+    }
+  }
+}
+
+.logo-intro {
+  margin: 0 auto;
+  display: table;
+  padding: 2rem;
+  @include media-breakpoint-down(sm) {
+    max-width: 50vw;
+    max-height: 200px;
+  }
+  @include media-breakpoint-up(md) {
+    max-width: 26vw;
+    padding: 2rem;
+  }
+}
+
+.usos {
+  .iconos {
+    max-width: 80px;
+    margin: 0 auto 1.5rem;
+  }
+
+  h3 {
+    font-weight: 300;
+  }
+
+  span.copy {
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1;
+    text-align: justify;
+  }
+}
+
+.banner {
+  padding: 3rem 0 3rem;
+  text-align: center;
+  .btn-more {
+    margin: 0 auto;
+    display: table;
+  }
+  .data {
+    display: table;
+    @extend .col;
+    @extend .col-sm-10;
+    @extend .col-md-8;
+    @extend .col-xl-6;
+    padding: 0;
+    @include media-breakpoint-up(sm) {
+      margin: 0 auto;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+}
+
+.middle {
+  display: table;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  @extend .col;
+  @extend .col-sm-12;
+  @extend .col-md-10;
+  @extend .col-xl-8;
+
+  @include media-breakpoint-down(sm) {
+    @include make-col(12);
+  }
+
+  .content {
+    display: table-cell;
+    vertical-align: middle;
+    @extend .col;
+    padding: 4rem 0;
+  }
+}
+
+.vitraux {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  .glass {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    @include make-col(6);
+    &::after {
+      @extend .grad-graydark;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      content: "";
+      display: block;
+      z-index: -1;
+      opacity: 0.7;
+    }
+    .content-data {
+      @extend .col;
+      display: table;
+      height: 100%;
+      padding: 1rem;
+      .data {
+        @extend .col;
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;        
+        small::before {
+          display: none;
+        }
+        small::after {
+          display: inline-block;
+        }
+      }
+      @include media-breakpoint-down(sm) {
+        @include make-col(12);
+        .data {
+          @include make-col(12);
+        }
+      }    
+      @include media-breakpoint-up(md) {
+        @include make-col(8);
+        .data {
+          @include make-col(10);
+          @include make-col-offset(2);
+        }
+      }   
+      @include media-breakpoint-up(lg) {
+        @include make-col(8);
+      }
+    }
+  }
+  
+  &.left {
+    .glass {
+      left: 0;
+      right: 50%;
+      .content-data {          
+        @include media-breakpoint-down(sm) {
+          @include make-col(10);
+          @include make-col-offset(1);
+          .data {
+            @include make-col(12);
+          }
+        }  
+        @include media-breakpoint-up(md) {
+          @include make-col(8);
+          @include make-col-offset(4);
+          .data {
+            @include make-col(12);
+          }
+        }
+        .data {
+          text-align: right;
+          small::before {
+            display: inline-block;
+          }
+          small::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  h3 {
+    padding-bottom: .5rem;
+    small {
+      display: block;
+      font-size: 80%;
+      letter-spacing: 3px;
+      position: relative;
+      font-weight: 300;
+      line-height: 2;
+      &:before,
+      &:after {
+        content: "";
+        height: 1px;
+        background-color: $white;
+        width: 1rem;
+        position: absolute;
+        top: 50%;
+        transform: translateX(.5rem) translateY(1px);
+      }
+      &:before {
+        transform: translateX(-1.5rem) translateY(1px);
+      }
+    }
+  }
+}
+
+
+.promo-ebook {
+  padding: 2rem;
+  .content {
+    .data {
+      position: relative;
+      z-index: 1;
+
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
+        order: 1;
+      }
+
+      @include media-breakpoint-up(md) {
+        @include make-col(8);
+        max-width: 100%;
+        order: 0;
+      }
+    }
+
+    .call-to-action {
+      position: relative;
+
+      @include media-breakpoint-down(md) {
+        order: 0;
+        height: 150px;
+        width: 70%;
+        margin: 0 auto;
+
+        picture {
+          bottom: 0;
+          left: 0;
+          opacity: .5;
+          right: 0;
+          position: absolute;
+          top: 0;
+
+          img {
+            position: absolute;
+            top: 0%;
+            transform: scale(1) translateX(0%) translateY(-20%);
+            right: 0;
+            bottom: 0;
+          }
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        @include make-col(4);
+        order: 1;
+
+        picture {
+          bottom: 0;
+          left: 0;
+          opacity: .75;
+          position: absolute;
+          right: 0;
+          top: 0;
+          img {
+            position: absolute;
+            top: 0%;
+            transform: scale(1.5) translateX(5%) translateY(20%);
+            right: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
+
+    .action {
+      margin: 0 auto;
+      order: 2;
+      text-align: center;
+    }
+  }
+}
+
+
+.partner {
+  display: table;
+  margin: 0 auto 3rem;
+
+  a {
+    margin: .5rem;
+    display: inline-table;
+  }
+}
+.premio {
+  @extend .col;
+  @extend .col-sm-8;
+  @extend .col-md-6;
+  margin: 0 auto;
+  max-width: 350px;
+  padding: 3.5rem 0;
+  position: relative;
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: url(../img/iconos/laurel.svg) no-repeat center/cover;
+    height: 130px;
+    width: 60px;
+    top: 50%;
+    bottom: 0;
+    transform: translateY(-50%);
+  }
+
+  &:before {
+    left: -35px;
+  }
+
+  &:after {
+    right: -35px;
+    transform: translateY(-50%)scaleX(-1);
+  }
+}
+
+@media screen and (min-width:768px) {
+  .features .banners {
+    padding: 1rem;
+  }
+}
+
+.floater_banner {
+  position: absolute;
+  top: 80vh;
+  left: auto;
+  right: 0%;
+  transform: translateY(-100%);
+  z-index: 989;
+  @include media-breakpoint-down(sm) {
+    left: 0;
+    right: auto;
+  }
+  .custom {
+    clear: both;
+  }
+  .btn-share,
+  .btn-contacto,
+  .btn-message {
+    display: block;
+    float: right;
+  }
+  .btn-poll,
+  .btn-message {
+    @extend .btn-quad;
+    background-color: $brand-2;
+    color: $white;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.25);
+    height: 50px;
+    width: 50px;
+    letter-spacing: 1px;
+    &:hover {
+      background-color: lighten($brand-2, 20%)
+    }
+    .icon-share {
+        line-height: 25px;
+    }
+
+  }
+
+  .mod-contacto {
+    @extend .d-none;
+    @extend .d-md-block;
+    .contact-panel {
+      @include fadeOut;
+      background-color: $white;
+      box-shadow: 0 3px 0.3rem rgba(0, 0, 0, 0.3);
+      height: auto;
+      padding: 1rem .5rem;
+      position: absolute;
+      right: -200%;
+      text-align: center;
+      top: 50px;
+      transform: translateX(150%)translateY(-50%);
+      width: 300px;
+      address {
+        line-height: 1.5;
+        font-size: .9em;
+        margin: .5rem 0;
+      }
+      &.open {
+        @include fadeIn;
+        display: block;
+        right: 50px;
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+
+.mod-poll {
+  @extend .d-none;
+  @extend .d-md-block;
+  @include fadeOut;
+  @extend .col-sm-8;
+  @extend .col-md-6;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  .poll-panel {
+    @include fadeOut;
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 25vw;
+    background-color: $white;
+    box-shadow: 0 3px 0.3rem rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    .formRow {
+      padding: 0;
+      width: 100%;
+      @extend .col;
+      .formControlLabel {
+        @extend .h6;
+        font-weight: 600;
+        height: auto !important;
+        line-height: 1.3;
+        position: relative !important;
+        text-align: left !important;
+        width: 100% !important;
+        white-space: normal !important;
+      }
+  
+      .formControls {
+        padding: 0 !important;
+        text-align: left;
+  
+        label {
+          width: 100%;
+          padding: 0 1rem;
+        }
+      }
+    }
+    input[type="radio"], input[type="checkbox"] {
+      margin: 5px 8px 0 0;
+    }
+    .btn-call {
+      margin: 0 auto;
+      display: block;
+    }
+    &.open {
+      @include fadeIn;      
+    }
+  }
+  &.active {
+    @include fadeIn;
+    display: block;
+    backface-visibility: inherit;
+  }
+}

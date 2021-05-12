@@ -1,0 +1,238 @@
+.whatsappchat {
+    &.is-top_left {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 99;
+    }
+    &.is-top_right {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 99;
+    }
+    &.is-bottom_left {
+        position: fixed;
+        bottom: 2rem;
+        left: 1rem;
+        z-index: 9999;
+        .popup {
+            left: 0;
+            right: auto;
+            &::after {
+                bottom: -2rem;
+                left: 2rem;
+                right: auto;
+            }
+        }
+    }
+    &.is-bottom_right {
+        position: fixed;
+        bottom: 2rem;
+        right: 1rem;
+        z-index: 9999;
+        .popup {
+            left: auto;
+            right: 0;
+            &::after {
+                bottom: -2rem;
+                left: auto;
+                right: 2rem;
+            }
+        }
+    }
+}
+
+.mod-whatsapp {
+    position: relative;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &.show .popup {
+        opacity: 1;
+        transition: all 0.3s ease-in 0s;
+        -webkit-transition: all 0.3s ease-in 0s;
+        visibility: visible;
+    }
+    .popup {
+        background: url("../../../modules/mod_ebwhatsappchat/assets/images/whatsapp-bg.png");
+        background-color: #e5ddd4;
+        box-shadow: 0 8px 25px -5px rgba(45, 62, 79, 0.15);
+        border-radius: 8px;
+        bottom: 6rem;
+        left: auto;
+        opacity: 0;
+        max-width: calc(100vw - 2rem);
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: auto;
+        transition: all 0.3s ease-in 0s;
+        -webkit-transition: all 0.3s ease-in 0s;
+        visibility: hidden;
+        width: 25rem;
+        z-index: 1;
+        &::after {
+            border-color: white transparent transparent transparent !important;
+            border-width: 1rem !important;
+            bottom: -30px;
+            right: 25px;
+            content: "";
+            position: absolute;
+            border-style: solid;
+            top: auto;
+            left: auto;
+        }        
+        .popup-top {
+            background: $brand-1;
+            width: 100%;
+            display: inline-block;
+            padding: 0.75rem;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            .btn-close {
+                .span {
+                    background: $light;
+                }
+            }
+            .content {
+                color: $light;
+                .name {
+                    @extend h3;
+                    margin: 0;
+                    padding-top: 1rem;
+                }
+                .label {
+                    display: block;
+                    font-size: smaller;
+                    font-style: italic;
+                }
+                .image {
+                    float: left;
+                    padding-right: 0.5rem;
+                    position: relative;
+                    img {
+                        border-radius: 5rem;
+                        max-width: 5rem;
+                    }
+                    .icon-active {
+                        content: "";
+                        bottom: 0.4rem;
+                        right: 0.7rem;
+                        width: 1rem;
+                        height: 1rem;
+                        box-sizing: border-box;
+                        background-color: #4ad504;
+                        display: block;
+                        position: absolute;
+                        z-index: 1;
+                        border-radius: 50%;
+                        border: 1px solid #fafafa;
+                    }
+                }
+            }
+        }
+        .chat-content {
+            background: $light;
+            border-radius: 0 $border-radius $border-radius $border-radius;
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+            position: relative;
+            margin: 0 2rem;
+            height: 0;
+            opacity: 0;
+            &::before {
+                border-left: 15px solid $light;
+                border-top: 15px solid transparent;
+                border-right: 15px solid transparent;
+                content: "";
+                height: 0;
+                position: absolute;
+                top: -12px !important;
+                left: -10px;
+                -ms-transform: rotate(-45deg) !important;
+                transform: rotate(-45deg) !important;
+                width: 0;
+                z-index: 0;
+            }
+            .message {
+                opacity: 0;
+                height: 0;
+                @include fadeOut;
+                text-align: left;
+                padding: 1rem;
+                line-height: 1.5;
+                padding: 1rem;
+                p {
+                    color: $black;
+                    line-height: 1.5;
+                }
+            }
+            &.atended {
+                margin: 2rem;
+                @include fadeIn;
+                height: auto;
+                transition-delay: 3s;
+                transition-duration: 2s;
+                .message {
+                    height: auto;
+                    @include fadeInUp;
+                }
+            }
+         }
+        .response {
+            background: $light;
+            position: relative;
+            input {
+                border: none;
+                border-top: 1px solid $gray-500;
+                color: gray;
+                font-weight: normal;
+                line-height: 1;
+                margin: 0;
+                min-height: 4rem;
+                outline: none;
+                padding: 1rem;
+                width: 100%;
+            }
+            .send_btn {
+                line-height: 0;
+                right: 1rem;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                &:hover img {
+                    opacity: .5;
+                }
+            }
+        }
+    }
+    .help-you-btn {
+        border-radius: 50px;
+        white-space: nowrap;
+        color: $white;
+        outline: 0;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.06), 0 2px 32px 0 rgba(0, 0, 0, 0.16);
+        margin: 0;
+        display: inline-block;
+        padding: 0 !important;
+        position: relative;
+        &:before {
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            background-color: #f00;
+            border: 2px solid $white;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            display: block;
+            position: absolute;
+            z-index: 1;
+            border-radius: 50%;
+            right: 0.5rem;
+            top: 0.5rem;
+        }
+    }
+}

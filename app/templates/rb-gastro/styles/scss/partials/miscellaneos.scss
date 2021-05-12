@@ -1,0 +1,389 @@
+// accordion
+.block-accordion {
+  .accordion-button:not(.collapsed) {
+    color: $dark;
+    background-color: $light !important;
+    border-top: 1px solid $dark !important;
+    box-shadow: none;
+    &::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 -5 0-.708z'/%3e%3c/svg%3e") !important;
+    }
+    &:focus {
+      z-index: 3;
+      border: none;
+      outline: 0;
+      box-shadow: none;
+    }
+    &.active {
+      color: #c9961a !important;
+      &::after {
+        transform: rotate(0deg) !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c9961a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 -5 0-.708z'/%3e%3c/svg%3e") !important;
+      }
+    }
+    &:hover {
+      color: #c9961a !important;
+      &::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c9961a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 -5 0-.708z'/%3e%3c/svg%3e") !important;
+      }
+    }
+  }
+  .accordion-panel {
+    background-color: $light;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .active + .accordion-panel {
+    overflow: visible;
+  }
+}
+
+
+//popup
+.popup {
+  @include fadeOutDown;
+  display: none;
+  background-color: $white;
+  bottom: 3rem;
+  border-radius: $border-radius;
+  box-shadow: $box-shadows;
+  color: $dark;
+  left: auto;
+  max-width: calc(100vw - 2rem);
+  padding: 1rem;
+  position: absolute;
+  right: 0rem;
+  top: auto;
+  min-width: 20rem;
+  width: auto;
+  z-index: 101;
+  .popup-top {
+    .btn-close {
+      position: absolute;
+      top: 1rem;
+    }
+  }
+  &::after {
+    border-color: white transparent transparent transparent !important;
+    border-width: 1rem !important;
+    bottom: -30px;
+    right: 25px;
+    content: "";
+    position: absolute;
+    border-style: solid;
+    top: auto;
+    left: auto;
+  }
+  .btn-close {
+    position: absolute;
+    top: 1rem;
+  }
+}
+
+.show {
+  .popup {
+    display: block;
+    text-align: left;
+    transition-delay: 1s;
+    @include fadeInUp;
+  }
+}
+
+.alergenos {
+  display: inline-block;
+  position: relative;
+  .popup {
+    bottom: 4rem;
+    right: -1.25rem;
+  }
+  i {
+    background-image: url(../images/alergenos.png);
+    background-position-x: center;
+    background-position-y: 0px;
+    background-color: transparent;
+    border-radius: 5rem;
+    display: block;
+    margin: 0.2rem;
+    float: left;
+    height: 1.65rem;
+    width: 1.65rem;
+  }
+  .alergias {
+    background-position-y: 0px;
+    border-radius: 0;
+  }
+  .gluten {
+    background-position-y: -50px;
+  }
+  .crustaceo {
+    background-position-y: -100px;
+  }
+  .huevo {
+    background-position-y: -150px;
+  }
+  .pescado {
+    background-position-y: -200px;
+  }
+  .cacahuete {
+    background-position-y: -250px;
+  }
+  .soja {
+    background-position-y: -300px;
+  }
+  .leche {
+    background-position-y: -350px;
+  }
+  .cascara {
+    background-position-y: -400px;
+  }
+  .apio {
+    background-position-y: -450px;
+  }
+  .mostaza {
+    background-position-y: -500px;
+  }
+  .sesamo {
+    background-position-y: -550px;
+  }
+  .sulfito {
+    background-position-y: -600px;
+  }
+  .altramuz {
+    background-position-y: -650px;
+  }
+  .molusco {
+    background-position-y: -700px;
+  }
+}
+
+.hero {
+  min-height: 50vw;
+  width: 100vw;
+  display: table;
+  @include media-breakpoint-up(sm) {
+    display: flex;
+  }
+  &.light {
+    background-color: $white;
+    .text {
+      color: $dark;
+    }
+  }
+  &.dark {
+    background-color: $dark;
+    .text {
+      color: $light;
+    }
+  }
+  .text {
+    padding: $padding;
+    width: 100vw;
+    order: 0;
+    text-align: right;
+    @include media-breakpoint-up(sm) {
+      width: 50vw;
+      display: table;
+      height: 50vw;
+      .content {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+  h2 .small::after {
+    background-color: $white;
+  }
+  .image {
+    background: transparent;
+    order: 1;
+    width: 100vw;
+    background-position: center;
+    background-size: cover;
+    min-height: 50vh;
+    @include media-breakpoint-up(sm) {
+      width: 50vw;
+    }
+    &.ciervo {
+      background-image: url(../../../images/intro/ciervo.png);
+    }
+    &.grulla {
+      background-image: url(../../../images/intro/grulla.png);
+    }
+    &.zorro {
+      background-image: url(../../../images/intro/zorro.png);
+    }
+    &.colibri {
+      background-image: url(../../../images/intro/colibri.jpg);
+    }
+    &.pez {
+      background-image: url(../../../images/intro/pez.png);
+    }
+  }
+  &:nth-child(even) {
+    .text {
+      order: 1;
+      text-align: left;
+    }
+    .image {
+      order: 0;
+    }
+  }
+}
+
+.intro-menu,
+.intro-carta {
+  text-align: center;
+  padding: 6rem 0 3rem;
+}
+
+.mod-login {
+  position: relative;
+  z-index: 9999;
+  .btn-acceslogin {
+    @extend a;
+    padding: 0 1rem 0 0.5rem !important;
+  }
+  .form-signin {
+    /*
+    @include fadeOutDown;
+    background-color: white;
+    bottom: 3rem;
+    border-radius: $border-radius;
+    box-shadow: $box-shadows;
+    left: auto;
+    max-width: calc(100vw - 2rem);
+    padding: 1rem;
+    position: absolute;
+    right: -1.5rem;
+    top: auto;
+    width: auto;
+    min-width: 0 !important;
+    z-index: -1;*/
+    &.show {
+      @include fadeInUp;
+    }
+    .remember {
+      padding: 0.5rem 0;
+    }
+    .btn-login {
+      @extend .w-100;
+      @extend .button;
+      @extend .btn;
+    }
+  }
+}
+
+// alertas
+.alert.alert-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 30rem;
+  max-width: calc(100vw - 2rem);
+  .close {
+    position: absolute;
+    top: 0px;
+    right: 0.7rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: $dark;
+  }
+  .alert-message {
+    padding: 2rem 0;
+  }
+}
+
+.floater_banner {
+  position: absolute;
+  top: 80vh;
+  left: auto;
+  right: 0%;
+  transform: translateY(-100%);
+  z-index: 989;
+  .custom {
+    clear: both;
+  }
+  .btn-share,
+  .btn-contacto,
+  .btn-message {
+    display: block;
+    float: right;
+  }
+  .btn-poll,
+  .btn-message {
+    @extend .btn-quad;
+    background-color: $brand-2;
+    color: $white;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.25);
+    height: 50px;
+    width: 50px;
+    letter-spacing: 1px;
+    &:hover {
+      background-color: lighten($brand-2, 20%);
+    }
+    .icon-share {
+      line-height: 25px;
+    }
+  }
+
+  .mod-contacto {
+    @extend .d-none;
+    @extend .d-md-block;
+    .contact-panel {
+      @include fadeOut;
+      background-color: $white;
+      box-shadow: 0 3px 0.3rem rgba(0, 0, 0, 0.3);
+      height: auto;
+      padding: 1rem 0.5rem;
+      position: absolute;
+      right: -200%;
+      text-align: center;
+      top: 50px;
+      transform: translateX(150%) translateY(-50%);
+      width: 300px;
+      address {
+        line-height: 1.5;
+        font-size: 0.9em;
+        margin: 0.5rem 0;
+      }
+      &.open {
+        @include fadeIn;
+        display: block;
+        right: 50px;
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+
+// formulario El tenedor
+
+.eltenedor{
+  width: 100%;
+  border:none;
+  overflow: scroll;
+}
+body,
+footer.body-footer.footer {
+  margin: 0 auto;
+  background: #C9961A;
+}
+  /* Media queries widget */ 
+  @media only screen and (max-width : 320px) { 
+      .eltenedor{
+      min-height: 840px;
+      }
+  }
+  @media only screen and (min-width : 321px) and (max-width : 516px){
+      .eltenedor{
+      min-height: 650px; 
+      }
+  }
+  @media only screen and (min-width : 517px) { 
+      .eltenedor{
+      min-height: 550px; 
+      }
+  }

@@ -3,13 +3,15 @@ var gulpLoadPlugins = require('gulp-load-plugins');
 var browserSync = require('browser-sync');
 var del = require('del');
 var php = require('gulp-connect-php7');
+var eventStream = require('event-stream');
 var runSequence = require('run-sequence');
+var autoprefixer = require('autoprefixer');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 var paths = {
-    virtualPathName: "app/templates/rb-lafauna/"  
+    virtualPathName: "app/templates/rb-gastro/"  
 };
 
 function lint(files, options) {
@@ -28,50 +30,45 @@ function errorHandler(err) {
     this.emit('end');
 } lint
 
-gulp.task('watch', function () {
-    console.log('watch')
-    gulp.watch('app/templates/rb-lafauna/styles/less/*.less', ['styles']);
+gulp.task('watch', function () {    
+    gulp.watch('app/**/*.scss', ['styles']);
 });
 
-gulp.task('lint', lint('app/templates/rb-lafauna/scripts/template.js'));
+gulp.task('lint', lint('' + paths.virtualPathName + 'scripts/template.js'));
 
-gulp.task('styles', () => {
-    return gulp.src('app/templates/rb-lafauna/styles/less/site.less')
-        .pipe($.plumber({
-            errorHandler: errorHandler
-        }))
+gulp.task('styles', () => {    
+    return compileSass(paths.virtualPathName + 'styles/scss/site.scss',paths.virtualPathName  + 'styles');
+});
+
+function compileSass(src, dest) {
+    $.util.log("compiling sass from " + src + " to " + dest);
+    return gulp.src(src)
+        .pipe($.plumber({ errorHandler: errorHandler }))
         .pipe($.sourcemaps.init())
-        .pipe($.less({
-            paths: ['.']
-        }))
-        .pipe($.autoprefixer({
-            browsers: ['last 5 version']
-        }))
-        .pipe($.sourcemaps.write('./', {
-            includeContent: false,
-            sourceRoot: '/src'
-        }))
-        .pipe(gulp.dest('app/templates/rb-lafauna/styles'))
-        .pipe($.size({
-            showFiles: true
-        }))
-        .pipe(reload({
-            stream: true
-        }));
-});
+        .pipe($.sass({ paths: ['.'] }))
+        .pipe($.postcss([autoprefixer()]))
+        .pipe($.sourcemaps.write('./', { includeContent: false, sourceRoot: '.' }))
+        .pipe($.size({ showFiles: true }))
+        .pipe(gulp.dest(dest));
+}
 
 gulp.task('min', ["min:assets", "min:images"]);
 
-gulp.task('min:styles', function () {
-    return gulp.src('app/templates/rb-lafauna/styles/site.css')
-        .pipe($.minifyCss({ compatibility: '*' }))
+gulp.task('min:assets', function () {
+    const assets = $.useref.assets({ searchPath: ['app', '.'] });
+    return gulp.src('app/*.html')
+        .pipe(assets)
+        .pipe($.if('*.js', $.uglify()))
+        .pipe($.if('*.css', $.minifyCss({ compatibility: '*' })))
+        .pipe(assets.restore())
+        .pipe($.useref())
+        .pipe($.if('*.html', $.minifyHtml({ conditionals: true, loose: true })))
         .pipe($.size({ showFiles: true }))
-        .pipe($.rename({ suffix: '.min' }))
-        .pipe(gulp.dest('app/templates/rb-lafauna/styles'));
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('min:images', function () {
-    return gulp.src('app/templates/rb-lafauna/img/**/*', { base: 'app/templates/rb-lafauna/img' })
+    return gulp.src('' + paths.virtualPathName + 'img/**/*', { base: '' + paths.virtualPathName + 'img' })
     .pipe(
         $.if(
             $.if.isFile,
@@ -86,15 +83,15 @@ gulp.task('min:images', function () {
         )
         )
         .pipe($.size({ showFiles: true }))
-        .pipe(gulp.dest('build/templates/rb-lafauna/img'));
+        .pipe(gulp.dest('' + paths.virtualPathName + 'img-min'));
 });
 
 
 gulp.task('extras', () => {
     return gulp.src([
         'app/*.*',
-        'app/templates/rb-lafauna/fonts/*.*',
-        'app/templates/rb-lafauna/images/**/*',
+        '' + paths.virtualPathName + 'fonts/*.*',
+        '' + paths.virtualPathName + 'images/**/*',
         '!app/*.html'
     ], {
             dot: true,
@@ -134,21 +131,18 @@ gulp.task('serve', ['build','watch'], function(done) {
 */
 gulp.task('serve', ['build','watch'], (done) => {
     browserSync({
-        port: 9002,
-        notify: true,                          
+        port: 9000,
+        notify: true,
         proxy: 'lafaunagastro.local',
     });
     gulp.watch([
-        'app/templates/rb-lafauna/**/*.php',
-        'app/templates/rb-lafauna/**/*.html',
-        'app/templates/rb-lafauna/scripts/**/*.js',
-        'app/templates/rb-lafauna/styles/**/*.css',
-        'app/templates/rb-lafauna/images/**/*',
-        'app/templates/rb-lafauna/fonts/**/*'
-    ]).on('change', reload);
-    gulp.watch('app/templates/rb-lafauna/styles/less/**/*', function () {
-        gulp.run('styles');
-    });
+        paths.virtualPathName + '**/*.php',
+        paths.virtualPathName + '**/*.html',
+        paths.virtualPathName + '**/*.js',
+        paths.virtualPathName + '**/*.css',
+        paths.virtualPathName + 'images/**/*',
+        paths.virtualPathName + 'fonts/**/*'
+    ]).on('change', reload);    
 });
 
 gulp.task('serve:deploy', ['deploy','php:build'],function(done) {
@@ -163,7 +157,7 @@ gulp.task('serve:deploy', ['deploy','php:build'],function(done) {
 });
 
 
-gulp.task('deploy', (done) => {
+gulp.task('deploy', ['clean'], (done) => {
     runSequence('build', ['min', 'extras'], function () {
         done();
     });

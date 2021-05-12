@@ -1,0 +1,40 @@
+@import "partials/bootstrap.custom";
+@import "partials/variables.custom";
+@import "partials/animatewithsass/animate";
+@import "partials/fonts";
+@import "partials/type";
+@import "partials/header";
+@import "partials/_content";
+@import "partials/_menus";
+@import "partials/footer";
+@import "partials/miscellaneos";
+@import "partials/links";
+@import "partials/whatsappchat";
+@import "partials/_grid-isotope";
+@import "partials/editor";
+//@import "partials/fronteditor";
+@import "partials/modal";
+//@import "partials/cookieconsent";
+//@import "partials/pace";
+//@import "partials/banners";
+//@import "partials/forms";
+//@import "partials/owl.theme.custom";
+//@import "partials/video-js.custom";
+//@import "partials/_backgrounds";
+//@import "partials/searcher";
+//@import "partials/jssocials.custom";
+
+
+/*
+.hidden {
+    display: none;
+}
+.modal.fade {
+    @include fadeOutUp;
+}
+.fade.in {
+    @include fadeInDown;
+}
+.rsform-submit-button {
+    @extend .btn-call;
+}*/

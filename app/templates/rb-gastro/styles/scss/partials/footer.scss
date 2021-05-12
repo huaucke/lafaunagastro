@@ -1,0 +1,74 @@
+.footer {
+  font-size: $small-font-size;
+  padding: 2rem 0 1rem;
+  margin-top: 1.5rem;
+  background-color: $dark;
+  color: $light;
+  position: relative;
+  .footermenu {
+    display: table;
+    width: 100%;
+    min-height: 6rem;
+    .legalmenu {
+      float: left;
+      li:first-child {
+        a {
+          padding-left: 1rem;
+        }
+      }
+      a {
+        padding: 0.5rem;
+      }
+    }
+    .usermenu {
+      float: right;
+      display: flex;
+      .mod-login {
+        &.jmodinside {
+          white-space: nowrap;
+          float: left;
+          .form-signin {
+            width: auto;
+            min-width: 0 !important;
+          }
+        }
+      }
+      ul.nav {
+        display: flex;
+        float: right;
+        li:last-child {
+          a {
+            padding-right: 1rem;
+          }
+        }
+        li a {
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+  .links-seo {
+    @extend .row;
+    ul {
+      @include make-col(3);
+      list-style: none;
+      padding: 1rem 0.5rem;
+      float: left;
+      li a {
+        padding: 0.2rem 0;
+        display: block;
+      }
+    }
+  }
+  .lastline {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    .copyright {
+      display: inline;
+    }
+    .credito {
+      display: inline;
+    }
+  }
+}
